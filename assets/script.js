@@ -22,7 +22,6 @@ const slides = [
 	}
 ];
 
-console.log(slides);
 
 
 const arrowRight = document.querySelector(".arrow_right");
@@ -38,7 +37,7 @@ function displayDots() {
 	for (let i = 0; i < slides.length; i++) {
 		const dot = document.createElement("div");
 		dot.classList.add("dot");
-		dots.appendChild(dot)
+		dots.appendChild(dot);
 		if (i == index) {
 			dot.classList.add("dot_selected")
 		}
@@ -48,22 +47,52 @@ displayDots();
 
 
 //click Droit///
-
-
  arrowRight.addEventListener("click",()=>{
 	clickRight();
  })
 
+
+
+
  function clickRight(){
+	const arrayDots = document.querySelectorAll(".dots .dot");
+	arrayDots[index].classList.remove("dot_selected");
+
 	index ++
 
 	if (index > slides.length-1) {   
 		index = 0	
 	}
+
+	arrayDots[index].classList.add("dot_selected");
+
 	img.src = "./assets/images/slideshow/" + slides[index].image
 	p.innerHTML = slides[index].tagLine
  }
 
+
+ 
+//click gauche///
+arrowLeft.addEventListener("click",()=>{
+	clickLeft();
+ })
+
+
+ function clickLeft(){
+	const arrayDots = document.querySelectorAll(".dots .dot")
+	arrayDots[index].classList.remove("dot_selected")
+
+	index --
+
+	if (index < 0) {   
+		index = slides.length-1	
+	}
+
+	arrayDots[index].classList.add("dot_selected");
+
+	img.src = "./assets/images/slideshow/" + slides[index].image
+	p.innerHTML = slides[index].tagLine
+ }
 
 
 
