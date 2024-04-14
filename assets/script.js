@@ -25,10 +25,13 @@ const slides = [
 console.log(slides);
 
 
-const clickRight = document.querySelector(".arrow_right");
-const clickLeft = document.querySelector(".arrow_left");
+const arrowRight = document.querySelector(".arrow_right");
+const arrowLeft = document.querySelector(".arrow_left");
 const dots = document.querySelector(".dots");
 let index = 0
+
+const img = document.querySelector(".banner-img");
+let p = document.querySelector("#banner p")
 
 
 function displayDots() {
@@ -42,6 +45,27 @@ function displayDots() {
 	}
 }
 displayDots();
+
+
+//click Droit///
+
+
+ arrowRight.addEventListener("click",()=>{
+	clickRight();
+ })
+
+ function clickRight(){
+	index ++
+
+	if (index > slides.length-1) {   
+		index = 0	
+	}
+	img.src = "./assets/images/slideshow/" + slides[index].image
+	p.innerHTML = slides[index].tagLine
+ }
+
+
+
 
 
 
