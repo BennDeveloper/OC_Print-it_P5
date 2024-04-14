@@ -22,14 +22,26 @@ const slides = [
 	}
 ];
 
+console.log(slides);
 
 
+const clickRight = document.querySelector(".arrow_right");
+const clickLeft = document.querySelector(".arrow_left");
+const dots = document.querySelector(".dots");
+let index = 0
 
 
-let clickRight = document.querySelector(".arrow_right");
-let clickLeft = document.querySelector(".arrow_left");
-
-
+function displayDots() {
+	for (let i = 0; i < slides.length; i++) {
+		const dot = document.createElement("div");
+		dot.classList.add("dot");
+		dots.appendChild(dot)
+		if (i == index) {
+			dot.classList.add("dot_selected")
+		}
+	}
+}
+displayDots();
 
 
 
